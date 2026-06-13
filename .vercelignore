@@ -1,0 +1,16 @@
+.git
+.github
+.husky
+.reasonix
+.codegraph
+docs
+test
+module_example
+examples
+bin
+static
+Dockerfile
+.travis.yml
+renovate.json
+issue_template.md
+CHANGELOG.MD

@@ -96,6 +96,10 @@ async function getModulesDefinitions(
  * need to notify users to upgrade it manually.
  */
 async function checkVersion() {
+  // Skip on Vercel: child_process.exec is not available in serverless
+  if (process.env.VERCEL) {
+    return { status: VERSION_CHECK_RESULT.LATEST }
+  }
   return new Promise((resolve) => {
     exec('npm info NeteaseCloudMusicApi version', (err, stdout) => {
       if (!err) {
@@ -319,4 +323,5 @@ async function serveNcmApi(options) {
 module.exports = {
   serveNcmApi,
   getModulesDefinitions,
+  consturctServer,
 }

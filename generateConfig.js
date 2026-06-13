@@ -4,6 +4,13 @@ const { cookieToJson } = require('./util/index')
 const config = require('./util/config.json')
 const path = require('path')
 async function generateConfig() {
+  if (process.env.VERCEL) {
+    console.log(
+      'Detected Vercel environment. File system is read-only. ' +
+        'Please set the ANONYMOUS_TOKEN environment variable in Vercel dashboard instead.',
+    )
+    return
+  }
   try {
     const res = await register_anonimous()
     const cookie = res.body.cookie

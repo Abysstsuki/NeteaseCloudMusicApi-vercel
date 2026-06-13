@@ -67,7 +67,8 @@ const createRequest = (method, url, data = {}, options) => {
       if (!options.cookie.MUSIC_U) {
         // 游客
         if (!options.cookie.MUSIC_A) {
-          options.cookie.MUSIC_A = config.anonymous_token
+          options.cookie.MUSIC_A =
+            process.env.ANONYMOUS_TOKEN || config.anonymous_token
         }
       }
       headers['Cookie'] = Object.keys(options.cookie)
