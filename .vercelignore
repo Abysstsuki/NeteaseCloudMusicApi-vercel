@@ -14,4 +14,4 @@ Dockerfile
 renovate.json
 issue_template.md
 CHANGELOG.MD
-package-lock.json
+yarn.lock
